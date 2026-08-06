@@ -3,19 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alpha Oumar Diallo, Ingénieur Logiciel Full-Stack</title>
-<meta name="description" content="Portfolio d'Alpha Oumar Diallo, diplômé de la Licence DAA avec mention, ingénieur logiciel full-stack, lead technique sur Douane Enchères SN et cofondateur, CTO de SamaAmicale.">
+
+<!-- SEO : titre unique (58 car.) et description (151 car.), le nom "Alpha" ouvre les deux
+     pour ressortir sur les recherches par prénom et sur ses variantes -->
+<title>Alpha Oumar Diallo | Ingénieur Logiciel Full-Stack Sénégal</title>
+<meta name="description" content="Alpha Oumar Diallo, ingénieur logiciel full-stack Next.js/Laravel au Sénégal. Lead technique sur Douane Enchères SN et SamaAmicale, SaaS en production.">
+<meta name="keywords" content="Alpha Oumar Diallo, développeur full-stack, ingénieur logiciel, Next.js, Laravel, React, TypeScript, Sénégal, Bambey, Thiès, Douane Enchères SN, SamaAmicale">
+<meta name="author" content="Alpha Oumar Diallo">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://alpha-oumar-diallo.vercel.app/">
+
+<!-- Open Graph (partage Facebook, LinkedIn, WhatsApp...) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Portfolio d'Alpha Oumar Diallo">
+<meta property="og:title" content="Alpha Oumar Diallo, Ingénieur Logiciel Full-Stack">
+<meta property="og:description" content="Alpha Oumar Diallo, ingénieur logiciel full-stack Next.js/Laravel au Sénégal. Lead technique sur Douane Enchères SN et SamaAmicale, SaaS en production.">
+<meta property="og:url" content="https://alpha-oumar-diallo.vercel.app/">
+<!-- Image 1200x630 recommandée : og:image actuelle réutilise la photo de profil (1024x1024),
+     à remplacer par une bannière dédiée 1200x630 pour un rendu optimal sur les réseaux -->
+<meta property="og:image" content="https://alpha-oumar-diallo.vercel.app/assets/img/Gemini_Generated_Image_2lbk3l2lbk3l2lbk.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="Portrait d'Alpha Oumar Diallo, ingénieur logiciel full-stack">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alpha Oumar Diallo, Ingénieur Logiciel Full-Stack">
+<meta name="twitter:description" content="Alpha Oumar Diallo, ingénieur logiciel full-stack Next.js/Laravel au Sénégal. Lead technique sur Douane Enchères SN et SamaAmicale, SaaS en production.">
+<meta name="twitter:image" content="https://alpha-oumar-diallo.vercel.app/assets/img/Gemini_Generated_Image_2lbk3l2lbk3l2lbk.png">
+
+<!-- Favicons : favicon.svg est fourni ; favicon.ico, apple-touch-icon.png et les icônes du
+     manifest sont référencés mais doivent encore être générés (ex. realfavicongenerator.net)
+     à partir du logo/portrait, puis déposés à la racine -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
 <link rel="stylesheet" href="style.css">
+
+<!-- Données structurées Schema.org : identité + projets, pour le rich snippet Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://alpha-oumar-diallo.vercel.app/#person",
+      "name": "Alpha Oumar Diallo",
+      "alternateName": ["Alpha Diallo", "Alpha", "L'alpha du tech"],
+      "jobTitle": "Ingénieur Logiciel Full-Stack",
+      "description": "Ingénieur logiciel full-stack spécialisé en Next.js et Laravel, diplômé de la Licence DAA avec mention (UFR SATIC, UADB), lead technique sur Douane Enchères SN et cofondateur/CTO de SamaAmicale.",
+      "url": "https://alpha-oumar-diallo.vercel.app/",
+      "image": "https://alpha-oumar-diallo.vercel.app/assets/img/Gemini_Generated_Image_2lbk3l2lbk3l2lbk.png",
+      "email": "mailto:alpha15diallo0@gmail.com",
+      "telephone": "+221774954955",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bambey",
+        "addressRegion": "Thiès",
+        "addressCountry": "SN"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Université Alioune Diop de Bambey (UADB)"
+      },
+      "knowsAbout": ["Next.js", "React", "TypeScript", "React Native", "Laravel", "PHP", "Node.js", "PostgreSQL", "Prisma", "Socket.io"],
+      "sameAs": [
+        "https://github.com/Dev-Alpha-Diallo",
+        "https://www.linkedin.com/in/alpha-oumar-diallo-aa810b336/",
+        "https://fb.com/lalpha.du.tech"
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Douane Enchères SN",
+      "description": "Plateforme d'enchères en ligne de la Direction Générale des Douanes sénégalaise, avec temps réel Socket.io, paiements CinetPay et vérification biométrique.",
+      "url": "https://douane-encheres-sn.onrender.com",
+      "creator": { "@id": "https://alpha-oumar-diallo.vercel.app/#person" },
+      "keywords": "Next.js 16, TypeScript, PostgreSQL, Prisma, Socket.io, CinetPay, React Native, Expo"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "SamaAmicale",
+      "description": "SaaS multi-tenant en production pour la gestion des amicales étudiantes : cotisations, votes et auto-inscription par QR code.",
+      "url": "https://samaamicale.com",
+      "creator": { "@id": "https://alpha-oumar-diallo.vercel.app/#person" },
+      "keywords": "Laravel 11, PostgreSQL, Supabase, Cloudflare, Tailwind CSS"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Natt Bi",
+      "description": "Application de gestion de tontine académique développée en équipe de 4.",
+      "creator": { "@id": "https://alpha-oumar-diallo.vercel.app/#person" },
+      "keywords": "Laravel 11, PostgreSQL, Tailwind CSS, Alpine.js"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Buntu Ligeey",
+      "description": "Application de bureau développée en Java pour la gestion et le suivi d'activités professionnelles.",
+      "creator": { "@id": "https://alpha-oumar-diallo.vercel.app/#person" },
+      "keywords": "Java, JavaFX"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <header>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navigation principale">
         <div class="brand">Alpha Oumar <span>Diallo</span></div>
-        <button class="menu-button" aria-label="Ouvrir le menu">
+        <button class="menu-button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
             <span></span>
         </button>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#competences">Compétences</a></li>
@@ -85,7 +188,7 @@
                 </div>
                 <div class="about-photo-card fade-in">
                     <div class="about-photo">
-                        <img src="assets/img/Gemini_Generated_Image_2lbk3l2lbk3l2lbk.png" alt="Alpha Oumar Diallo">
+                        <img src="assets/img/Gemini_Generated_Image_2lbk3l2lbk3l2lbk.png" alt="Portrait d'Alpha Oumar Diallo, ingénieur logiciel full-stack" width="1024" height="1024" loading="lazy" decoding="async">
                     </div>
                     <strong>Alpha Oumar Diallo</strong>
                     <span>Ingénieur Logiciel Full-Stack</span>
@@ -180,7 +283,7 @@
         <div class="container">
             <h2 class="section-title fade-in">Projets</h2>
             <div class="projects-grid">
-                <div class="project-card fade-in">
+                <article class="project-card fade-in">
                     <h3>Douane Enchères SN</h3>
                     <p>Lead technique (projet de fin de licence) sur cette plateforme d'enchères en ligne de la Direction Générale des Douanes sénégalaise, conforme à l'Arrêté n°013712/MEFP/DGD/DRCI (2015). 6 rôles, enchères en temps réel via Socket.io, paiements CinetPay avec webhooks sécurisés par HMAC, vérification biométrique (face-api.js, Fingerprint.js). Monorepo réunissant le web et une application mobile React Native développée avec Expo (SDK 57, expo-router, socket.io-client).</p>
                     <div class="project-meta">
@@ -193,11 +296,11 @@
                         <span>React Native (Expo)</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://douane-encheres-sn.onrender.com" target="_blank" rel="noopener" class="project-link">Voir le site ↗</a>
-                        <a href="#" class="project-link">Voir sur GitHub →</a>
+                        <a href="https://douane-encheres-sn.onrender.com" target="_blank" rel="noopener" class="project-link" aria-label="Voir le site de Douane Enchères SN">Voir le site ↗</a>
+                        <a href="#" class="project-link" aria-label="Voir Douane Enchères SN sur GitHub">Voir sur GitHub →</a>
                     </div>
-                </div>
-                <div class="project-card fade-in">
+                </article>
+                <article class="project-card fade-in">
                     <h3>SamaAmicale</h3>
                     <p>Cofondateur et CTO de ce SaaS multi-tenant en production, destiné aux amicales étudiantes : gestion des cotisations, votes démocratiques, auto-inscription par QR code, et sécurité applicative durcie (protection IDOR, en-têtes CSP/HSTS).</p>
                     <div class="project-meta">
@@ -208,11 +311,11 @@
                         <span>Alpine.js</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://samaamicale.com" target="_blank" rel="noopener" class="project-link">Voir le site ↗</a>
-                        <a href="#" class="project-link">Voir sur GitHub →</a>
+                        <a href="https://samaamicale.com" target="_blank" rel="noopener" class="project-link" aria-label="Voir le site de SamaAmicale">Voir le site ↗</a>
+                        <a href="#" class="project-link" aria-label="Voir SamaAmicale sur GitHub">Voir sur GitHub →</a>
                     </div>
-                </div>
-                <div class="project-card fade-in">
+                </article>
+                <article class="project-card fade-in">
                     <h3>Natt Bi</h3>
                     <p>Développeur backend au sein d'une équipe de 4 (projet académique) : gestion de tontine académique avec migrations et modèles Eloquent, authentification via Laravel Breeze, et modélisation UML réalisée avec PowerAMC.</p>
                     <div class="project-meta">
@@ -223,10 +326,10 @@
                         <span>Laravel Breeze</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">Voir sur GitHub →</a>
+                        <a href="#" class="project-link" aria-label="Voir Natt Bi sur GitHub">Voir sur GitHub →</a>
                     </div>
-                </div>
-                <div class="project-card fade-in">
+                </article>
+                <article class="project-card fade-in">
                     <h3>Buntu Ligeey</h3>
                     <p>Application de bureau développée en Java pour la gestion et le suivi d'activités professionnelles.</p>
                     <div class="project-meta">
@@ -234,9 +337,9 @@
                         <span>JavaFX</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">Voir sur GitHub →</a>
+                        <a href="#" class="project-link" aria-label="Voir Buntu Ligeey sur GitHub">Voir sur GitHub →</a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -247,18 +350,18 @@
         <div class="container">
             <h2 class="section-title fade-in">Témoignages</h2>
             <div class="testimonials-grid">
-                <div class="testimonial-card fade-in">
+                <article class="testimonial-card fade-in">
                     <p>La gestion des cotisations est enfin centralisée et transparente pour tous les membres de l'amicale.</p>
                     <cite>Trésorier d'amicale, utilisateur SamaAmicale</cite>
-                </div>
-                <div class="testimonial-card fade-in">
+                </article>
+                <article class="testimonial-card fade-in">
                     <p>Les votes en ligne ont simplifié nos prises de décision, plus besoin de convoquer une réunion physique pour chaque scrutin.</p>
                     <cite>Présidente d'amicale, utilisatrice SamaAmicale</cite>
-                </div>
-                <div class="testimonial-card fade-in">
+                </article>
+                <article class="testimonial-card fade-in">
                     <p>L'inscription par QR code a nettement accéléré l'intégration des nouveaux membres.</p>
                     <cite>Membre d'amicale, utilisateur SamaAmicale</cite>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -286,12 +389,12 @@
                         <strong>Localisation</strong>
                         <span>Bambey / Thiès, Sénégal</span>
                     </div>
-                    <div class="social-list">
+                    <nav class="social-list" aria-label="Réseaux sociaux">
                         <a href="https://wa.me/221774954955" target="_blank" rel="noopener" class="social-link" title="WhatsApp">WhatsApp</a>
                         <a href="https://github.com/Dev-Alpha-Diallo" target="_blank" rel="noopener" class="social-link" title="GitHub">GitHub</a>
                         <a href="https://www.linkedin.com/in/alpha-oumar-diallo-aa810b336/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">LinkedIn</a>
                         <a href="https://fb.com/lalpha.du.tech" target="_blank" rel="noopener" class="social-link" title="Facebook">Facebook</a>
-                    </div>
+                    </nav>
                 </div>
                 <div class="contact-summary">
                     <h3>Disponibilité</h3>
@@ -311,6 +414,6 @@
     <p>&copy; 2026 Alpha Oumar Diallo, Ingénieur Logiciel Full-Stack</p>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

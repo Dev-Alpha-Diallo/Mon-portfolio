@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alpha-oumar-diallo.vercel.app/sitemap.xml

@@ -18,6 +18,9 @@
   --shadow: 0 24px 48px rgba(26, 36, 31, 0.10);
   --header-bg: rgba(216, 233, 222, 0.92);
   --nav-mobile-bg: rgba(246, 250, 247, 0.98);
+  /* Vert plus soutenu, dédié aux boutons pleins : le texte blanc y garde un contraste AA (6.7:1) */
+  --button-bg: #416350;
+  --button-bg-hover: #345040;
 }
 
 /* Confort visuel de nuit : thème sombre automatique selon les préférences système */
@@ -38,6 +41,9 @@
     --shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
     --header-bg: rgba(16, 27, 21, 0.85);
     --nav-mobile-bg: rgba(20, 32, 25, 0.96);
+    /* Vert dédié aux boutons pleins, recalibré pour le fond sombre (contraste AA 8.9:1) */
+    --button-bg: #2F4B3C;
+    --button-bg-hover: #3A5C48;
   }
 }
 
@@ -58,6 +64,8 @@ body {
   color: var(--ink);
   min-height: 100vh;
   line-height: 1.6;
+  /* Filet de sécurité : empêche tout débordement horizontal résiduel sur mobile */
+  overflow-x: hidden;
 }
 
 img {
@@ -212,6 +220,8 @@ main {
 /* Hero */
 .hero {
   min-height: calc(100vh - 86px);
+  /* dvh tient compte de la barre d'adresse mobile (Safari/Chrome), évite le saut de mise en page */
+  min-height: calc(100dvh - 86px);
   display: grid;
   place-items: center;
   padding: 5rem 1.5rem;
@@ -261,13 +271,13 @@ main {
 }
 
 .button {
-  background: var(--sage);
+  background: var(--button-bg);
   color: var(--white);
 }
 
 .button:hover {
   transform: translateY(-2px);
-  background: var(--sage-dark);
+  background: var(--button-bg-hover);
   box-shadow: 0 18px 32px rgba(95, 139, 111, 0.24);
 }
 
@@ -539,7 +549,7 @@ main {
 /* Témoignages */
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -587,7 +597,8 @@ main {
 
 .contact-item {
   display: flex;
-  gap: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
   margin-bottom: 1rem;
   color: var(--muted);
 }
@@ -595,6 +606,13 @@ main {
 .contact-item strong {
   min-width: 5.5rem;
   color: var(--ink);
+}
+
+.contact-item a,
+.contact-item span {
+  /* Empêche l'adresse email (chaîne sans espace) de forcer un débordement horizontal sur mobile */
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .contact-item a {
@@ -698,6 +716,9 @@ footer {
     transform: translateY(-100%);
     transition: transform 0.28s ease;
     border-bottom: 1px solid var(--border);
+    /* Évite que les liens soient coupés sans recours en orientation paysage (viewport bas) */
+    overflow-y: auto;
+    max-height: calc(100dvh - 86px);
   }
 
   .nav-links.open {
@@ -719,6 +740,12 @@ footer {
 
   .hero-badges {
     grid-template-columns: 1fr;
+  }
+
+  /* Cohérence avec .hero-actions : les CTA de contact passent en pleine largeur sur mobile */
+  .contact-actions .button,
+  .contact-actions .button-secondary {
+    width: 100%;
   }
 }
 

@@ -1,0 +1,13 @@
+{
+  "name": "Alpha Oumar Diallo, Ingénieur Logiciel Full-Stack",
+  "short_name": "Alpha Diallo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#D8E9DE",
+  "theme_color": "#416350",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

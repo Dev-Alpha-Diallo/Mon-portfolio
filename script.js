@@ -4,12 +4,14 @@ const navLinks = document.querySelector('.nav-links');
 const navItems = document.querySelectorAll('.nav-links a');
 
 menuButton?.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  const isOpen = navLinks.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
 });
 
 navItems.forEach((link) => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
+    menuButton?.setAttribute('aria-expanded', 'false');
   });
 });
 
