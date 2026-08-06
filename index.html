@@ -3,912 +3,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alpha Oumar Diallo - Portfolio</title>
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary: #00ff88;
-    --secondary: #00d4ff;
-    --dark: #0a0a0a;
-    --gray: #1a1a1a;
-    --light-gray: #2a2a2a;
-    --text: #ffffff;
-    --text-muted: rgba(255, 255, 255, 0.7);
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--dark);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Navigation */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 1.5rem 5%;
-    background: rgba(10, 10, 10, 0.9);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-.nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.3s;
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: var(--primary);
-    transition: all 0.3s;
-}
-
-/* Hero Section */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8rem 5% 4rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    max-width: 1200px;
-    width: 100%;
-    align-items: center;
-}
-
-.hero-content h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-}
-
-.hero-content .highlight {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-content .subtitle {
-    font-size: 1.5rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: inline-block;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: var(--dark);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
-}
-
-.btn-secondary {
-    border: 2px solid var(--primary);
-    color: var(--primary);
-}
-
-.btn-secondary:hover {
-    background: var(--primary);
-    color: var(--dark);
-}
-
-.hero-image {
-    position: relative;
-}
-
-.profile-image {
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
-    box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
-    animation: float 6s ease-in-out infinite;
-    border: 5px solid transparent;
-    background: linear-gradient(var(--dark), var(--dark)) padding-box,
-                linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-.info-cards {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.info-card {
-    background: var(--gray);
-    padding: 0.8rem 1.2rem;
-    border-radius: 10px;
-    border-left: 3px solid var(--primary);
-    font-size: 0.9rem;
-}
-
-.info-card strong {
-    color: var(--primary);
-}
-
-/* Section commune */
-section {
-    padding: 5rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    margin: 1rem auto 0;
-    border-radius: 2px;
-}
-
-/* À propos */
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-.about-text p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.about-highlight {
-    background: var(--gray);
-    padding: 1.5rem;
-    border-radius: 15px;
-    border-left: 4px solid var(--primary);
-    margin-top: 1.5rem;
-}
-
-.about-highlight h3 {
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.about-highlight ul {
-    list-style: none;
-    padding: 0;
-}
-
-.about-highlight li {
-    color: var(--text-muted);
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.about-highlight li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-.skill-category {
-    background: var(--gray);
-    padding: 1.5rem;
-    border-radius: 15px;
-    border-left: 4px solid var(--primary);
-    transition: transform 0.3s;
-}
-
-.skill-category:hover {
-    transform: translateX(10px);
-}
-
-.skill-category h4 {
-    color: var(--primary);
-    margin-bottom: 0.8rem;
-    font-size: 1.1rem;
-}
-
-.skill-category p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-/* Formation */
-.education-timeline {
-    position: relative;
-    padding-left: 3rem;
-}
-
-.education-timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, var(--primary), var(--secondary));
-}
-
-.education-item {
-    position: relative;
-    margin-bottom: 2rem;
-    background: var(--gray);
-    padding: 1.5rem;
-    border-radius: 15px;
-    transition: all 0.3s;
-}
-
-.education-item::before {
-    content: '';
-    position: absolute;
-    left: -3.5rem;
-    top: 1.5rem;
-    width: 12px;
-    height: 12px;
-    background: var(--primary);
-    border-radius: 50%;
-    border: 3px solid var(--dark);
-}
-
-.education-item:hover {
-    transform: translateX(10px);
-    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
-}
-
-.education-item h3 {
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-}
-
-.education-item h4 {
-    color: var(--text);
-    font-weight: 500;
-    margin-bottom: 0.3rem;
-}
-
-.education-item .period {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-style: italic;
-}
-
-/* Projets */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background: var(--gray);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
-}
-
-.project-image {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-}
-
-.project-content {
-    padding: 1.5rem;
-}
-
-.project-content h3 {
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-}
-
-.project-content p {
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-}
-
-.project-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-}
-
-.tag {
-    background: var(--light-gray);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: var(--primary);
-    border: 1px solid var(--primary);
-}
-
-.project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-
-.project-link:hover {
-    gap: 1rem;
-}
-
-/* Contact */
-.contact-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.contact-info {
-    background: var(--gray);
-    padding: 2rem;
-    border-radius: 15px;
-    border-left: 4px solid var(--primary);
-}
-
-.contact-info h3 {
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    color: var(--text-muted);
-}
-
-.contact-item-icon {
-    font-size: 1.5rem;
-}
-
-.contact-item a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.contact-item a:hover {
-    color: var(--primary);
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.social-link {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: var(--primary);
-    text-decoration: none;
-    transition: all 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.social-link:hover {
-    background: var(--primary);
-    color: var(--dark);
-    transform: translateY(-5px);
-}
-
-.availability-card {
-    background: var(--gray);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 2px solid var(--primary);
-    text-align: center;
-}
-
-.availability-card h3 {
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.availability-card p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-}
-
-/* Footer */
-footer {
-    background: var(--gray);
-    padding: 2rem 5%;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-footer p {
-    color: var(--text-muted);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(10, 10, 10, 0.98);
-        flex-direction: column;
-        padding: 2rem;
-        transition: left 0.3s;
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .menu-toggle {
-        display: flex;
-    }
-    
-    .hero-grid,
-    .about-content,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-image {
-        order: -1;
-    }
-    
-    .info-cards {
-        flex-direction: column;
-    }
-    
-    .education-timeline {
-        padding-left: 2rem;
-    }
-}
-
-/* Animations d'apparition */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-</style>
+<title>Alpha Oumar Diallo, Ingénieur Logiciel Full-Stack</title>
+<meta name="description" content="Portfolio d'Alpha Oumar Diallo, diplômé de la Licence DAA avec mention, ingénieur logiciel full-stack, lead technique sur Douane Enchères SN et cofondateur, CTO de SamaAmicale.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Navigation -->
-<nav>
-    <div class="logo">AOD Portfolio</div>
-    <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#formation">Formation</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+<header>
+    <nav class="navbar">
+        <div class="brand">Alpha Oumar <span>Diallo</span></div>
+        <button class="menu-button" aria-label="Ouvrir le menu">
+            <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#temoignages">Témoignages</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-<!-- Hero Section -->
-<section class="hero" id="accueil">
-    <div class="hero-grid">
-        <div class="hero-content fade-in">
-            <h1>Bonjour, je suis <span class="highlight">Alpha Oumar Diallo</span></h1>
-            <p class="subtitle">Développeur & Administrateur d'Applications</p>
-            <p>Étudiant à l'Université Alioune Diop de Bambey, passionné par les solutions numériques innovantes avec de solides bases en programmation, Conception de Bases de donnees et gestion de projets.</p>
-            <div class="hero-buttons">
-                <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-                <a href="#contact" class="btn btn-secondary">Me contacter</a>
-            </div>
-            <div class="info-cards">
-                <div class="info-card">
-                    <strong>📍</strong> Thiès, Sénégal
-                </div>
-                <div class="info-card">
-                    <strong>🎓</strong> L3 - DAA
-                </div>
-            </div>
-        </div>
-        <div class="hero-image fade-in">
-            <div class="profile-image">
-                <img src="assets\img\Gemini_Generated_Image_2lbk3l2lbk3l2lbk.png" alt="Alpha Oumar Diallo">
-            </div>
-        </div>
-    </div>
-</section>
+<main>
 
-<!-- À propos -->
-<section id="apropos">
-    <h2 class="section-title fade-in">À propos de moi</h2>
-    <div class="about-content">
-        <div class="about-text fade-in">
-            <p>Développeur passionné et rigoureux, je me spécialise dans le développement web full-stack et l'administration d'applications. Mon parcours académique à l'Université Alioune Diop de Bambey m'a permis d'acquérir une solide expertise technique.</p>
-            <p>Polyvalent et créatif, je maîtrise aussi bien le développement frontend (React, JavaScript) que backend (PHP, Laravel, Python, Django). Mon sens du business et ma capacité d'adaptation me permettent de mener à bien des projets variés.</p>
-            
-            <div class="about-highlight">
-                <h3>🥋 Au-delà du code</h3>
-                <ul>
-                    <li>Ceinture noire en karaté</li>
-                    <li>Trésorier Général d'une Association Sociale</li>
-                    <li>Président d'organisation des Étudiants Thiessois</li>
-                    <li>Permis de conduire en cours d'obtention</li>
-                </ul>
+    <!-- Hero -->
+    <section class="hero" id="accueil">
+        <div class="container hero-grid">
+            <div class="hero-copy fade-in">
+                <h1>Bonjour, je suis <strong>Alpha Oumar Diallo</strong></h1>
+                <p class="lead">Ingénieur Logiciel Full-Stack, diplômé de la Licence Développement et Administration d'Applications avec mention (UFR SATIC, Université Alioune Diop de Bambey). Lead technique sur deux projets en production : Douane Enchères SN, plateforme d'enchères gouvernementale, et SamaAmicale, SaaS national pour les amicales étudiantes.</p>
+                <div class="hero-actions">
+                    <a href="#projets" class="button">Voir mes projets</a>
+                    <a href="#contact" class="button-secondary">Me contacter</a>
+                </div>
             </div>
-            
-            <div class="about-highlight">
-                <h3>🌍 Langues</h3>
-                <ul>
-                    <li>Français -Courant </li>
-                    <li>Pulaar - Langue maternelle</li>
-                    <li>Wolof - Courant</li>
-                    <li>Anglais - Niveau basique</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="skills-grid fade-in">
-            <div class="skill-category">
-                <h4>💻 Développement Web</h4>
-                <p>HTML, CSS, JavaScript, React, PHP, Laravel, Python, Django</p>
-            </div>
-            <div class="skill-category">
-                <h4>🗄️ Bases de Données & Systèmes</h4>
-                <p>Conception et gestion de bases de données(Postgres,MySQL et oracle), Administration système(linux,windows server)</p>
-            </div>
-            <div class="skill-category">
-                <h4>☕ Programmation</h4>
-                <p>Programmation Orientée Objet (Java), Algorithmique</p>
-            </div>
-            <div class="skill-category">
-                <h4>🛠️ Outils & Productivité</h4>
-                <p>Microsoft Office (Word, Excel, PowerPoint), Canva, Git</p>
-            </div>
-            <div class="skill-category">
-                <h4>💡 Compétences Transversales</h4>
-                <p>Autonomie, Créativité, Gestion de projets, Sens du business, Adaptabilité</p>
+            <div class="hero-panel fade-in">
+                <div class="hero-panel-content">
+                    <span class="hero-tag">Disponible pour discuter de nouvelles missions</span>
+                    <div class="hero-card">
+                        <strong>De l'architecture backend à l'interface</strong>
+                        <p>Je conçois et développe des plateformes en production : temps réel, paiements, biométrie et sécurité applicative.</p>
+                    </div>
+                    <div class="hero-badges">
+                        <div class="hero-badge">Licence DAA, mention, UFR SATIC, UADB</div>
+                        <div class="hero-badge">Lead technique, Douane Enchères SN</div>
+                        <div class="hero-badge">Cofondateur et CTO, SamaAmicale</div>
+                        <div class="hero-badge">Bambey / Thiès, Sénégal</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Formation -->
-<section id="formation">
-    <h2 class="section-title fade-in">Mon Parcours</h2>
-    <div class="education-timeline">
-        <div class="education-item fade-in">
-            <h3>Université Alioune Diop de Bambey</h3>
-            <h4>Licence 3 - Développement et Administration d'Applications</h4>
-            <p class="period">2025 - En cours</p>
+    <!-- À propos -->
+    <section class="section" id="apropos">
+        <div class="container">
+            <h2 class="section-title fade-in">À propos</h2>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p>Ingénieur logiciel full-stack spécialisé en Next.js et Laravel, je conçois des architectures techniques complètes : du schéma de base de données à l'interface, en passant par le temps réel, les paiements et la sécurité applicative.</p>
+                    <p>Je suis lead technique sur deux projets en production : Douane Enchères SN, plateforme d'enchères gouvernementale pour la Douane sénégalaise, et SamaAmicale, SaaS national pour les amicales étudiantes dont je suis cofondateur et CTO. En parallèle, j'anime « L'alpha du tech », une communauté où je partage des contenus autour du développement et des architectures techniques.</p>
+                    <div class="about-highlight">
+                        <h3>Formation</h3>
+                        <p class="formation-note">Licence obtenue avec <strong>mention</strong>. Toutes les matières validées en première session, aucun rattrapage sur l'ensemble du cursus.</p>
+                        <ul>
+                            <li>Licence DAA, UFR SATIC, UADB (2024-2025)</li>
+                            <li>Baccalauréat série S, Lycée Malick Sy de Thiès (2022)</li>
+                            <li>BFEM, CEM Mbour 2 (2018)</li>
+                        </ul>
+                    </div>
+                    <div class="about-highlight">
+                        <h3>L'alpha du tech</h3>
+                        <ul>
+                            <li>Communauté technique de plus de 3500 abonnés</li>
+                            <li>Contenus autour du développement web, mobile et des architectures logicielles</li>
+                            <li>Partage d'expérience à partir de projets réels (Douane, SamaAmicale, Natt Bi...)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-photo-card fade-in">
+                    <div class="about-photo">
+                        <img src="assets/img/Gemini_Generated_Image_2lbk3l2lbk3l2lbk.png" alt="Alpha Oumar Diallo">
+                    </div>
+                    <strong>Alpha Oumar Diallo</strong>
+                    <span>Ingénieur Logiciel Full-Stack</span>
+                </div>
+            </div>
         </div>
-        <div class="education-item fade-in">
-            <h3>Lycée Malick Sy de Thiès</h3>
-            <h4>Baccalauréat Série S (Sciences Expérimentales)</h4>
-            <p class="period">2018 - 2022</p>
-        </div>
-        <div class="education-item fade-in">
-            <h3>CEM Mbour 2</h3>
-            <h4>Brevet de Fin d'Études Moyennes (BFEM)</h4>
-            <p class="period">2014 - 2018</p>
-        </div>
-        <div class="education-item fade-in">
-            <h3>École Abdel Kader Ndiaye de Thiès</h3>
-            <h4>Certificat de Fin d'Études Élémentaires (CFEE)</h4>
-            <p class="period">2008 - 2014</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Projets -->
-<section id="projets">
-    <h2 class="section-title fade-in">Mes Projets</h2>
-    <div class="projects-grid">
-        <div class="project-card fade-in">
-            <div class="project-image">🎬</div>
-            <div class="project-content">
-                <h3>Ciné Critique Backend</h3>
-                <p>API backend pour une plateforme de critiques de films avec gestion des utilisateurs, des films et des avis.</p>
-                <div class="project-tags">
-                    <span class="tag">Backend</span>
-                    <span class="tag">API REST</span>
-                    <span class="tag">Base de données</span>
+    <!-- Compétences -->
+    <section class="section section-alt" id="competences">
+        <div class="container">
+            <h2 class="section-title fade-in">Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <h3>Frontend</h3>
+                    <p>Interfaces web et mobiles modernes, typées et performantes.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Next.js 16</span>
+                        <span class="tag">React 19</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">React Native (Expo SDK 57)</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">Alpine.js</span>
+                    </div>
                 </div>
-                <a href="https://github.com/sowballapapa/cine_critique_backend.git" target="_blank" class="project-link">
-                    Voir sur GitHub →
-                </a>
+                <div class="skill-card fade-in">
+                    <h3>Backend</h3>
+                    <p>APIs, temps réel et logique métier robustes.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Laravel 11</span>
+                        <span class="tag">PHP 8</span>
+                        <span class="tag">Python/Django</span>
+                        <span class="tag">Java (POO)</span>
+                        <span class="tag">API REST</span>
+                        <span class="tag">WebSocket (Socket.io)</span>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <h3>Bases de données</h3>
+                    <p>Modélisation et persistance des données.</p>
+                    <div class="skill-tags">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Prisma ORM</span>
+                        <span class="tag">Eloquent</span>
+                        <span class="tag">Supabase</span>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <h3>DevOps / Infra</h3>
+                    <p>Déploiement, hébergement et automatisation.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Git/GitHub</span>
+                        <span class="tag">Render</span>
+                        <span class="tag">Cloudflare</span>
+                        <span class="tag">Nginx</span>
+                        <span class="tag">EAS Build</span>
+                        <span class="tag">Cron-jobs</span>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <h3>Intégrations</h3>
+                    <p>Paiement, biométrie, emailing et automatisation.</p>
+                    <div class="skill-tags">
+                        <span class="tag">CinetPay</span>
+                        <span class="tag">Nodemailer</span>
+                        <span class="tag">Cloudinary</span>
+                        <span class="tag">face-api.js</span>
+                        <span class="tag">Fingerprint.js</span>
+                        <span class="tag">Puppeteer</span>
+                    </div>
+                </div>
+                <div class="skill-card fade-in">
+                    <h3>Sécurité</h3>
+                    <p>Authentification, autorisation et durcissement applicatif.</p>
+                    <div class="skill-tags">
+                        <span class="tag">NextAuth</span>
+                        <span class="tag">JWT</span>
+                        <span class="tag">RBAC</span>
+                        <span class="tag">Laravel Policies</span>
+                        <span class="tag">CSP/HSTS</span>
+                        <span class="tag">Rate limiting</span>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="project-card fade-in">
-            <div class="project-image">🚀</div>
-            <div class="project-content">
-                <h3>Projet Fadj Ma</h3>
-                <p>Application web complète développée avec des technologies modernes pour répondre à des besoins spécifiques.</p>
-                <div class="project-tags">
-                    <span class="tag">Full Stack</span>
-                    <span class="tag">Web App</span>
-                    <span class="tag">Frontend</span>
-                </div>
-                <a href="https://github.com/Dev-Alpha-Diallo/projet_Fadj_Ma.git" target="_blank" class="project-link">
-                    Voir sur GitHub →
-                </a>
-            </div>
-        </div>
+    </section>
 
-        <div class="project-card fade-in">
-            <div class="project-image">🚀</div>
-            <div class="project-content">
-                <h3>Creation de portfolio moderne </h3>
-                <p>portfolio développée avec des technologies modernes pour une presence en ligne <strong>professionnlle</strong></p>
-                <div class="project-tags">
-                    <span class="tag">Full Stack</span>
-                    <span class="tag">Web App</span>
-                    <span class="tag">Frontend</span>
+    <!-- Projets -->
+    <section class="section" id="projets">
+        <div class="container">
+            <h2 class="section-title fade-in">Projets</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <h3>Douane Enchères SN</h3>
+                    <p>Lead technique (projet de fin de licence) sur cette plateforme d'enchères en ligne de la Direction Générale des Douanes sénégalaise, conforme à l'Arrêté n°013712/MEFP/DGD/DRCI (2015). 6 rôles, enchères en temps réel via Socket.io, paiements CinetPay avec webhooks sécurisés par HMAC, vérification biométrique (face-api.js, Fingerprint.js). Monorepo réunissant le web et une application mobile React Native développée avec Expo (SDK 57, expo-router, socket.io-client).</p>
+                    <div class="project-meta">
+                        <span>Next.js 16</span>
+                        <span>TypeScript</span>
+                        <span>PostgreSQL/Prisma</span>
+                        <span>Socket.io</span>
+                        <span>CinetPay</span>
+                        <span>face-api.js</span>
+                        <span>React Native (Expo)</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://douane-encheres-sn.onrender.com" target="_blank" rel="noopener" class="project-link">Voir le site ↗</a>
+                        <a href="#" class="project-link">Voir sur GitHub →</a>
+                    </div>
                 </div>
-                <a href="https://github.com/Dev-Alpha-Diallo/Mon-portfolio.git" target="_blank" class="project-link">
-                    Voir sur GitHub →
-                </a>
+                <div class="project-card fade-in">
+                    <h3>SamaAmicale</h3>
+                    <p>Cofondateur et CTO de ce SaaS multi-tenant en production, destiné aux amicales étudiantes : gestion des cotisations, votes démocratiques, auto-inscription par QR code, et sécurité applicative durcie (protection IDOR, en-têtes CSP/HSTS).</p>
+                    <div class="project-meta">
+                        <span>Laravel 11</span>
+                        <span>PostgreSQL (Supabase)</span>
+                        <span>Cloudflare</span>
+                        <span>Tailwind CSS</span>
+                        <span>Alpine.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://samaamicale.com" target="_blank" rel="noopener" class="project-link">Voir le site ↗</a>
+                        <a href="#" class="project-link">Voir sur GitHub →</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <h3>Natt Bi</h3>
+                    <p>Développeur backend au sein d'une équipe de 4 (projet académique) : gestion de tontine académique avec migrations et modèles Eloquent, authentification via Laravel Breeze, et modélisation UML réalisée avec PowerAMC.</p>
+                    <div class="project-meta">
+                        <span>Laravel 11</span>
+                        <span>PostgreSQL</span>
+                        <span>Tailwind CSS</span>
+                        <span>Alpine.js</span>
+                        <span>Laravel Breeze</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Voir sur GitHub →</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <h3>Buntu Ligeey</h3>
+                    <p>Application de bureau développée en Java pour la gestion et le suivi d'activités professionnelles.</p>
+                    <div class="project-meta">
+                        <span>Java</span>
+                        <span>JavaFX</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Voir sur GitHub →</a>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="project-card fade-in">
-            <div class="project-image">📚</div>
-            <div class="project-content">
-                <h3>Système de Gestion</h3>
-                <p>Application de gestion avec interface utilisateur intuitive et fonctionnalités avancées d'administration.</p>
-                <div class="project-tags">
-                    <span class="tag">PHP</span>
-                    <span class="tag">Laravel</span>
-                    <span class="tag">MySQL</span>
-                </div>
-                <a href="#contact" class="project-link">
-                    Demander plus d'infos →
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact -->
-<section id="contact">
-    <h2 class="section-title fade-in">Contactez-moi</h2>
-    <div class="contact-content fade-in">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Informations de contact</h3>
-                <div class="contact-item">
-                    <span class="contact-item-icon">📱</span>
-                    <a href="tel:+221774954955">+221 77 495 49 55</a>
+    <!-- Témoignages -->
+    <!-- Témoignages génériques et anonymisés, à remplacer par de vrais retours utilisateurs SamaAmicale dès qu'ils sont disponibles -->
+    <section class="section section-alt" id="temoignages">
+        <div class="container">
+            <h2 class="section-title fade-in">Témoignages</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p>La gestion des cotisations est enfin centralisée et transparente pour tous les membres de l'amicale.</p>
+                    <cite>Trésorier d'amicale, utilisateur SamaAmicale</cite>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-item-icon">✉️</span>
-                    <a href="mailto:alpha15diallo@gmail.com">alpha15diallo@gmail.com</a>
+                <div class="testimonial-card fade-in">
+                    <p>Les votes en ligne ont simplifié nos prises de décision, plus besoin de convoquer une réunion physique pour chaque scrutin.</p>
+                    <cite>Présidente d'amicale, utilisatrice SamaAmicale</cite>
                 </div>
-                <div class="contact-item">
-                    <span class="contact-item-icon">📍</span>
-                    <span>Thiès ville, Thiès, Sénégal</span>
+                <div class="testimonial-card fade-in">
+                    <p>L'inscription par QR code a nettement accéléré l'intégration des nouveaux membres.</p>
+                    <cite>Membre d'amicale, utilisateur SamaAmicale</cite>
                 </div>
-                
-                <div class="social-links">
-                    <a href="https://github.com/Dev-Alpha-Diallo" target="_blank" class="social-link" title="GitHub">🐙</a>
-                    <a href="https://www.linkedin.com/in/alpha-oumar-diallo-aa810b336/" target="_blank" class="social-link" title="LinkedIn">💼</a>
-                    <a href="mailto:alpha15diallo@gmail.com" class="social-link" title="Email">✉️</a>
-                    <a href="tel:+221774954955" class="social-link" title="Téléphone">📱</a>
-                </div>
-            </div>
-            
-            <div class="availability-card">
-                <h3>🎯 Disponibilité</h3>
-                <p>Je suis actuellement disponible pour des opportunités de stage ou d'emploi en alternance dans le domaine du développement et de l'administration d'applications.</p>
-                <a href="mailto:alpha15diallo@gmail.com" class="btn btn-primary">Discutons de votre projet</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Contact</h2>
+            <div class="contact-panel fade-in">
+                <div class="contact-card">
+                    <h3>Me contacter</h3>
+                    <div class="contact-item">
+                        <strong>WhatsApp</strong>
+                        <a href="https://wa.me/221774954955" target="_blank" rel="noopener">+221 77 495 49 55</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:alpha15diallo0@gmail.com">alpha15diallo0@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Téléphone</strong>
+                        <a href="tel:+221774954955">+221 77 495 49 55</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Localisation</strong>
+                        <span>Bambey / Thiès, Sénégal</span>
+                    </div>
+                    <div class="social-list">
+                        <a href="https://wa.me/221774954955" target="_blank" rel="noopener" class="social-link" title="WhatsApp">WhatsApp</a>
+                        <a href="https://github.com/Dev-Alpha-Diallo" target="_blank" rel="noopener" class="social-link" title="GitHub">GitHub</a>
+                        <a href="https://www.linkedin.com/in/alpha-oumar-diallo-aa810b336/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">LinkedIn</a>
+                        <a href="https://fb.com/lalpha.du.tech" target="_blank" rel="noopener" class="social-link" title="Facebook">Facebook</a>
+                    </div>
+                </div>
+                <div class="contact-summary">
+                    <h3>Disponibilité</h3>
+                    <p>Actuellement disponible pour des opportunités de stage, d'alternance ou des missions techniques en développement et architecture d'applications. WhatsApp est le canal le plus rapide pour me joindre.</p>
+                    <div class="contact-actions">
+                        <a href="https://wa.me/221774954955" target="_blank" rel="noopener" class="button">Discuter sur WhatsApp</a>
+                        <a href="mailto:alpha15diallo0@gmail.com" class="button-secondary">Envoyer un email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
 <footer>
-    <p>&copy; 2025 Alpha Oumar Diallo - Tous droits réservés</p>
-    <p style="margin-top: 0.5rem; color: rgba(255, 255, 255, 0.5);">Développeur & Administrateur d'Applications</p>
+    <p>&copy; 2026 Alpha Oumar Diallo, Ingénieur Logiciel Full-Stack</p>
 </footer>
 
-<script>
-// Menu mobile toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// Fermer le menu mobile lors du clic sur un lien
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
-});
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-});
-
-// Active nav link on scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section[id]');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.style.color = '';
-        if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = 'var(--primary)';
-        }
-    });
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
