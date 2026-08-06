@@ -223,7 +223,9 @@ main {
   /* dvh tient compte de la barre d'adresse mobile (Safari/Chrome), évite le saut de mise en page */
   min-height: calc(100dvh - 86px);
   display: grid;
-  place-items: center;
+  /* align-items seul (pas place-items) : justify-items reste "stretch" par défaut, sinon
+     .hero-grid se dimensionne à son contenu non replié (max-content) et déborde sur mobile */
+  align-items: center;
   padding: 5rem 1.5rem;
 }
 
