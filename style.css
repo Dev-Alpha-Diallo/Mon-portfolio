@@ -89,11 +89,21 @@ header {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Le flou est posé sur ce pseudo-élément plutôt que sur header lui-même : backdrop-filter
+   transforme son élément en repère de positionnement pour ses descendants position:fixed
+   (ici .nav-links), ce qui cassait le panneau mobile (il se positionnait par rapport à la
+   barre de nav au lieu de l'écran entier, et restait visible par-dessus le bouton menu). */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: var(--header-bg);
-  /* -webkit- requis pour que Safari/iOS applique le flou (sinon le fond reste net mais fonctionnel) */
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
 }
 
 .navbar {
@@ -725,6 +735,14 @@ footer {
     /* Évite que les liens soient coupés sans recours en orientation paysage (viewport bas) */
     overflow-y: auto;
     max-height: calc(100dvh - 86px);
+  }
+
+  /* translateY(-100%) ne déplace que de la hauteur du panneau lui-même : comme il commence
+     à top:86px (sous le header) et non à top:0, il fallait aussi remonter de ces 86px pour
+     être vraiment hors écran. Sans ça, le panneau "fermé" retombait pile sur le header et
+     bloquait les clics sur le bouton menu. */
+  .nav-links {
+    transform: translateY(calc(-100% - 86px));
   }
 
   .nav-links.open {
