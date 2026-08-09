@@ -512,6 +512,17 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.project-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 1.4rem;
+  border: 1px solid var(--border);
+  background: var(--tint);
+}
+
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow);
