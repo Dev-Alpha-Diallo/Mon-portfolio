@@ -68,3 +68,74 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+// Visionneuse des captures de projet (galerie interface / modélisation)
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+
+let galleryImages = [];
+let galleryIndex = 0;
+let lastFocusedThumb = null;
+
+function openLightbox(images, index, triggerEl) {
+  galleryImages = images;
+  galleryIndex = index;
+  lastFocusedThumb = triggerEl;
+  showLightboxImage();
+  lightbox.hidden = false;
+  lightboxClose.focus();
+}
+
+function showLightboxImage() {
+  const current = galleryImages[galleryIndex];
+  lightboxImage.src = current.full;
+  lightboxImage.alt = current.caption;
+  lightboxCaption.textContent = `${current.caption} (${galleryIndex + 1}/${galleryImages.length})`;
+}
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  lightboxImage.src = '';
+  lastFocusedThumb?.focus();
+}
+
+document.querySelectorAll('.project-card').forEach((card) => {
+  const thumbs = [...card.querySelectorAll('.gallery-thumb')];
+  const images = thumbs.map((thumb) => ({
+    full: thumb.dataset.full,
+    caption: thumb.dataset.caption,
+  }));
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => openLightbox(images, index, thumb));
+  });
+});
+
+lightboxClose?.addEventListener('click', closeLightbox);
+
+lightboxPrev?.addEventListener('click', () => {
+  galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  showLightboxImage();
+});
+
+lightboxNext?.addEventListener('click', () => {
+  galleryIndex = (galleryIndex + 1) % galleryImages.length;
+  showLightboxImage();
+});
+
+lightbox?.addEventListener('click', (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (lightbox?.hidden) return;
+  if (event.key === 'Escape') closeLightbox();
+  if (event.key === 'ArrowLeft') lightboxPrev?.click();
+  if (event.key === 'ArrowRight') lightboxNext?.click();
+});
