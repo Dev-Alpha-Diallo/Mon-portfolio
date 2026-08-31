@@ -815,6 +815,54 @@ main {
   color: var(--muted);
 }
 
+/* Vidéos */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.8rem;
+}
+
+.video-card {
+  border-radius: 30px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 1.4rem;
+  border: 1px solid var(--border);
+  background: var(--tint);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-card h3 {
+  margin-bottom: 0.9rem;
+  color: var(--sage-dark);
+}
+
+.video-card p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
 /* Contact */
 .contact-panel {
   display: grid;
@@ -920,6 +968,7 @@ footer {
   .hero-grid,
   .about-grid,
   .projects-grid,
+  .videos-grid,
   .contact-panel {
     grid-template-columns: 1fr;
   }
